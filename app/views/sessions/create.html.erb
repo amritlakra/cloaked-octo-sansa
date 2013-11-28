@@ -1,0 +1,48 @@
+<% if current_user %>
+  <h1>User Profile</h1>
+  <p>
+    <strong>Name:</strong>
+    <%= current_user.name %>
+  </p>
+  <p>
+    <strong>Provider:</strong>
+    <%= current_user.provider %>
+  </p>
+  <p>
+    <strong>FB UID:</strong>
+    <%= current_user.uid %>
+  </p>.
+  <p>
+    <ul>
+      <% @pg_feeds.each do |fb_group_feeds| %>
+          <li>
+            <strong>Posted By:</strong>
+            <%=fb_group_feeds.postedBy%> 
+            <strong>in</strong>
+            <%=fb_group_feeds.groupName%>
+            <strong>Post</strong>
+            <%=fb_group_feeds.postMessage%>
+            <strong>Post Type</strong>
+            <%=fb_group_feeds.postType%>
+            <strong>Posted At</strong>
+            <%=fb_group_feeds.postedAt%>
+          </li>
+      <% end %>
+    </ul>
+  </p>
+  <p><%= link_to "Log out", logout_path %></p>
+<% else %>
+
+  <h1>Use below Link to Sign In Agian</h1>
+
+  <p><strong>Sign in through one of these services:</strong></p>
+
+  <div class="auth_providers">
+  
+    <a href="/auth/facebook" class="auth_provider">
+      <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
+    </a>
+  
+  </div>
+  
+<% end %>
