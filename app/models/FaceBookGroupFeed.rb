@@ -6,7 +6,7 @@ class FaceBookGroupFeed
   		@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
   		@postMessage=fbHash['message']
   		@postType=fbHash['type']
-  		@postedAt=Time.at(fbHash['created_time'])
+  		@postedAt=Time.parse(fbHash['created_time'])
   end
   
 end
