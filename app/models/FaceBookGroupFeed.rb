@@ -1,5 +1,5 @@
 class FaceBookGroupFeed
-  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt,
+  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt
 
   def initialize(fbHash)
   		@postedBy=fbHash.from.name
