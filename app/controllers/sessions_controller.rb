@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     pg_feeds = []
     fb_groups.each do |data|
         pg_feed = graph.get_connections(data['id'], "feed")
-        if nil!=pg_feed
+        if pg_feed.present?
             pg_feed.each do |feed_data|
                 if "photo"==feed_data['type']
                    feed=FaceBookPhotoFeed.new(pg_feed)
