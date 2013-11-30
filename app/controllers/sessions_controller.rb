@@ -20,11 +20,11 @@ class SessionsController < ApplicationController
         if pg_feed.present?
             pg_feed.each do |feed_data|
                 if "photo"==feed_data['type']
-                   feed=FaceBookPhotoFeed.new(pg_feed)
+                   feed=FaceBookPhotoFeed.new(feed_data)
                 elsif "link"==feed_data['type']
-                    feed=FaceBookLinkFeed.new(pg_feed)
+                    feed=FaceBookLinkFeed.new(feed_data)
                 else
-                    feed=FaceBookStatusFeed.new(pg_feed)
+                    feed=FaceBookStatusFeed.new(feed_data)
                 end
                 pg_feeds<<feed
             end  
