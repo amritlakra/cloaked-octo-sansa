@@ -16,12 +16,12 @@ class SessionsController < ApplicationController
 	def getFaceBookFeeds(graph,fb_groups)
     pg_feeds = []
     fb_groups.each do |data|
-        pg_feed = graph.get_connections(data['id'], "feed")
+        pg_feed = graph.get_connections(data.id, "feed")
         if pg_feed.present?
             pg_feed.each do |feed_data|
-                if "photo"==feed_data['type']
+                if "photo"==feed_data.type
                    feed=FaceBookPhotoFeed.new(feed_data)
-                elsif "link"==feed_data['type']
+                elsif "link"==feed_data.type
                     feed=FaceBookLinkFeed.new(feed_data)
                 else
                     feed=FaceBookStatusFeed.new(feed_data)
