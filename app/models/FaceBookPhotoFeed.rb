@@ -6,9 +6,9 @@ class FaceBookPhotoFeed < FaceBookGroupFeed
   	@photoName=fbHash[name]
   	@photoCaption=fbHash[caption]
   	if(fbHash[properties].fetch(0).present?)
-  		@byName=fbHash[properties]fetch(0)[name]
-  		@byText=fbHash[properties]fetch(0)[text]
-  		@byLink=fbHash[properties]fetch(0)[href]
+  		@byName=fbHash[properties].fetch(0)[name]
+  		@byText=fbHash[properties].fetch(0)[text]
+  		@byLink=fbHash[properties].fetch(0)[href]
   	else
   		@byName=''	
   		@byLink=''
