@@ -17,6 +17,10 @@ gem 'execjs','~>1.4.0'
 gem 'omniauth-facebook'
 #Facebook graph api calls
 gem 'koala', '~> 1.8.0rc1'
+
+group :production do
+gem 'rails_12factor', '0.0.2'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
