@@ -1,4 +1,5 @@
 <% if current_user %>
+<p><%= link_to "Log out", logout_path %></p>
   <h1>User Profile</h1>
   <p>
     <strong>Name:</strong>
@@ -15,22 +16,33 @@
   <p>
     <ul>
       <% @pg_feeds.each do |fb_group_feeds| %>
-          <li>
+          <li>  
             <strong>Posted By:</strong>
             <%=fb_group_feeds.postedBy%> 
             <strong>in</strong>
             <%=fb_group_feeds.groupName%>
             <strong>Post</strong>
             <%=fb_group_feeds.postMessage%>
-            <strong>Post Type</strong>
-            <%=fb_group_feeds.postType%>
             <strong>Posted At</strong>
             <%=fb_group_feeds.postedAt%>
+            <% if "photo"==fb_group_feeds.postType %>
+               <%=fb_group_feeds.photoName%>
+                  <%= link_to image_tag(<%=fb_group_feeds.photoThubmnail%>,size: "16x10", alt: "Rails"), 
+                  <%=fb_group_feeds.photoLink%> %>
+                <%=fb_group_feeds.byName%>
+                <%=fb_group_feeds.byText%>
+                <%=fb_group_feeds.byLink%>
+            <% elsif "link"==fb_group_feeds.postType%>
+                <%=fb_group_feeds.feedLink%>
+                <%=fb_group_feeds.feedCaption%>
+                <%=fb_group_feeds.feedName%>
+                <%=fb_group_feeds.feedDescription%>
+            <%end%>
           </li>
       <% end %>
     </ul>
   </p>
-  <p><%= link_to "Log out", logout_path %></p>
+  
 <% else %>
 
   <h1>Use below Link to Sign In Agian</h1>

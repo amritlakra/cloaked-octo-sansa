@@ -5,7 +5,7 @@ class FaceBookPhotoFeed < FaceBookGroupFeed
   	@photoLink=fbHash['link']
   	@photoName=fbHash['name']
   	@photoCaption=fbHash['caption']
-  	if(fbHash['properties'].present? and fbHash['properties'].fetch(0).present?)
+  	if( !fbHash['properties'].nil? and !fbHash['properties'].fetch(0).nil?)
   		@byName=fbHash['properties'].fetch(0)['name']
   		@byText=fbHash['properties'].fetch(0)['text']
   		@byLink=fbHash['properties'].fetch(0)['href']

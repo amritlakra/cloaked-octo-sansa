@@ -14,25 +14,27 @@ class SessionsController < ApplicationController
   end
 
 	def getFaceBookFeeds(graph,fb_groups)
-    pg_feeds = []
-    fb_groups.each do |data|
-        pg_feed = graph.get_connections(data['id'],"feed")
-        if pg_feed.present?
-            pg_feed.each do |feed_data|
-                if "photo"==feed_data['type']
-                   feed=FaceBookPhotoFeed.new(feed_data)
-                elsif "link"==feed_data['type']
-                    feed=FaceBookLinkFeed.new(feed_data)
-                else
-                    feed=FaceBookStatusFeed.new(feed_data)
+        pg_feeds = []
+        fb_groups.each do |data|
+            pg_feed = graph.get_connections(data['id'],"feed")
+            if !pg_feed.nil?
+                pg_feed.each do |feed_data|
+                    if !feed_data.nil? and feed_data['from']['name'].present?
+                        if "photo"==feed_data['type']
+                            feed=FaceBookPhotoFeed.new(feed_data)
+                        elsif "link"==feed_data['type']
+                            feed=FaceBookLinkFeed.new(feed_data)
+                        else
+                            feed=FaceBookStatusFeed.new(feed_data)
+                        end
+                        pg_feeds<<feed
+                    end  
                 end
-                pg_feeds<<feed
-            end  
+            end
         end
+        pg_feeds
     end
-    pg_feeds
-	end
-
+    
 	def destroy
 	session[:user_id] = nil
     session[:fb_oauth_token] = nil
