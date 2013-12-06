@@ -27,8 +27,8 @@
             <%=fb_group_feeds.postedAt%>
             <% if "photo"==fb_group_feeds.postType %>
                <%=fb_group_feeds.photoName%>
-                  <%= link_to image_tag(<%=fb_group_feeds.photoThubmnail%>,size: "16x10", alt: "Rails"), 
-                  <%=fb_group_feeds.photoLink%> %>
+                  <%= link_to image_tag(fb_group_feeds.photoThubmnail,size: "16x10", alt: "Rails"), 
+                  fb_group_feeds.photoLink %>
                 <%=fb_group_feeds.byName%>
                 <%=fb_group_feeds.byText%>
                 <%=fb_group_feeds.byLink%>
