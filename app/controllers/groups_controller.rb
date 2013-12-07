@@ -3,8 +3,6 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
-
-    format.html # index.html.erb
   end
 
   # GET /groups/1
