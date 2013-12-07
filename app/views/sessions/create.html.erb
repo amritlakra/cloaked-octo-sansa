@@ -28,8 +28,8 @@
             <% if "photo"==fb_group_feeds.postType %>
               <%=fb_group_feeds.photoName%>
                 <a href=<%=fb_group_feeds.photoLink%>>
-                  <%=image_tag fb_group_feeds.photoThubmnail,size: "16x10" %>
-                 </a> 
+                  <img src=<%=fb_group_feeds.photoThubmnail%> width="42" height="42">
+                </a> 
                 <%=fb_group_feeds.byName%>
                 <%=fb_group_feeds.byText%>
                 <%=fb_group_feeds.byLink%>
