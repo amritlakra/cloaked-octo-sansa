@@ -1,5 +1,6 @@
 <% if current_user %>
 <p><%= link_to "Log out", logout_path %></p>
+<p><%= link_to "Manage Groups", index_path %></p>
   <h1>User Profile</h1>
   <p>
     <strong>Name:</strong>
@@ -14,9 +15,8 @@
     <%= current_user.uid %>
   </p>.
   <p>
-    <ul>
       <% @pg_feeds.each do |fb_group_feeds| %>
-          <li>  
+          <p>  
             <strong>Posted By:</strong>
             <%=fb_group_feeds.postedBy%> 
             <strong>in</strong>
@@ -39,10 +39,9 @@
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedDescription%>
             <%end%>
-          </li>
+          </p>
       <% end %>
-    </ul>
-  </p>
+    </p>
   
 <% else %>
 
