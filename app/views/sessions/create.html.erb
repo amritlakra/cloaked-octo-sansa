@@ -15,6 +15,7 @@
     <%= current_user.uid %>
   </p>.
   <p>
+    <%if !@pg_feeds.nil? %>
       <% @pg_feeds.each do |fb_group_feeds| %>
           <p>  
             <strong>Posted By:</strong>
@@ -25,7 +26,7 @@
             <%=fb_group_feeds.postMessage%>
             <strong>Posted At</strong>
             <%=fb_group_feeds.postedAt%>
-            <% if "photo"==fb_group_feeds.postType %>
+              <% if "photo"==fb_group_feeds.postType %>
                 <%=fb_group_feeds.photoName%>
                 <a href=<%=fb_group_feeds.photoLink%>>
                   <img src=<%=fb_group_feeds.photoThumbNail%> width="42" height="42">
@@ -33,16 +34,16 @@
                 <%=fb_group_feeds.byName%>
                 <%=fb_group_feeds.byText%>
                 <%=fb_group_feeds.byLink%>
-            <% elsif "link"==fb_group_feeds.postType%>
+              <% elsif "link"==fb_group_feeds.postType%>
                 <a href=<%=fb_group_feeds.feedLink%>>link</a>
                 <%=fb_group_feeds.feedCaption%>
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedDescription%>
-            <%end%>
-          </p>
+              <%end%>
+            </p> 
       <% end %>
     </p>
-  
+    <%end%>
 <% else %>
 
   <h1>Use below Link to Sign In Agian</h1>
