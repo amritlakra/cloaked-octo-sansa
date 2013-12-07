@@ -4,10 +4,7 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @groups }
-    end
+    format.html # index.html.erb
   end
 
   # GET /groups/1
@@ -15,10 +12,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @group }
-    end
+    format.html # show.html.erb
   end
 
   # GET /groups/new
@@ -26,10 +20,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @group }
-    end
+    format.html # new.html.erb
   end
 
   # GET /groups/1/edit
@@ -42,15 +33,11 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params[:group])
 
-    respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render json: @group, status: :created, location: @group }
       else
         format.html { render action: "new" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PUT /groups/1
@@ -58,15 +45,11 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { head :no_content }
-      else
+       else
         format.html { render action: "edit" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
+       end
   end
 
   # DELETE /groups/1
@@ -74,10 +57,6 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
-
-    respond_to do |format|
       format.html { redirect_to groups_url }
-      format.json { head :no_content }
-    end
   end
 end
