@@ -17,8 +17,6 @@ class GroupsController < ApplicationController
   # GET /groups/new.json
   def new
     @group = Group.new
-
-    format.html # new.html.erb
   end
 
   # GET /groups/1/edit
