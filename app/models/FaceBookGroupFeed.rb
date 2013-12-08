@@ -11,7 +11,8 @@ class FaceBookGroupFeed
   		end
   		@postMessage=fbHash['message']
   		@postType=fbHash['type']
-  		@postedAt=Time.parse(fbHash['created_time'])
+      fbDate=DateTime.parse(fbHash['created_time'])
+  		@postedAt= fbDate.strftime("%B")+'\''+fbDate.strftime("%y")+' at'+fbDate.strftime("%e")+' '+fbDate.strftime("%P")
   end
   
 end
