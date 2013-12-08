@@ -6,6 +6,7 @@ class FaceBookGroupFeed
   		if(id==fbHash['from']['id'])
   			@ownShare=true
   		else	
+        @ownShare=false
   			@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
   		end
   		@postMessage=fbHash['message']
