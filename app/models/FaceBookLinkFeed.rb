@@ -15,6 +15,6 @@ class FaceBookLinkFeed < FaceBookGroupFeed
   end
 
   def formatPictureUrl(pictureUrl)
-    URI.unescape(url.split("url=").last)
+    URI.unescape(pictureUrl.split("url=").last)
   end  
 end
