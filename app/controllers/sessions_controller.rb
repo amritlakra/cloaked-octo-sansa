@@ -44,6 +44,7 @@ class SessionsController < ApplicationController
 
     def getFaceBookFeeds(graph,fb_groups)
         pg_feeds = []
+        if(!fb_groups.nil?)
         fb_groups.each do |data|
             pg_feed = graph.get_connections(data.gid,"feed")
             if !pg_feed.nil?
@@ -60,6 +61,7 @@ class SessionsController < ApplicationController
                     end  
                 end
             end
+        end
         end
         pg_feeds
     end
