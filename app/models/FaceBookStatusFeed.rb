@@ -1,5 +1,5 @@
 class FaceBookStatusFeed < FaceBookGroupFeed
-   def initialize(fbHash)
-   	super(fbHash)
+   def initialize(fbHash,id)
+   	super(fbHash,id)
    end 
 end
