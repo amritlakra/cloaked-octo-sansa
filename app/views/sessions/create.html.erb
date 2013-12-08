@@ -23,25 +23,27 @@
             <%else%>
             <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
             <%end%>
-            
-            <strong>Post</strong>
-            <%=fb_group_feeds.postMessage%>
-            <strong>Posted At</strong>
-            <%=fb_group_feeds.postedAt%>
-              <% if "photo"==fb_group_feeds.postType %>
+            <% if "photo"==fb_group_feeds.postType %>
+                <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.photoName%>
                 <a href=<%=fb_group_feeds.photoLink%>>
-                  <img src=<%=fb_group_feeds.photoThumbNail%> width="42" height="42">
-                </a> 
+                  <img src=<%=fb_group_feeds.photoThumbNail%> width="100" height="100">
+                </a>
                 <%=fb_group_feeds.byName%>
                 <%=fb_group_feeds.byText%>
                 <%=fb_group_feeds.byLink%>
-              <% elsif "link"==fb_group_feeds.postType%>
-                <a href=<%=fb_group_feeds.feedLink%>>link</a>
-                <%=fb_group_feeds.feedCaption%>
+            <% elsif "link"==fb_group_feeds.postType%>
+              <%=fb_group_feeds.postMessage%>
+              <a href=<%=fb_group_feeds.feedLink%>
+                <%if fb_group_feeds.isPictureLink%>
+                  <img src=<%=fb_group_feeds.photoThumbNail%> width="100" height="100">
+                <%end%>
                 <%=fb_group_feeds.feedName%>
+                <%=fb_group_feeds.feedCaption%>
                 <%=fb_group_feeds.feedDescription%>
-              <%end%>
+              </a>
+            <%end%>
+              Posted At <%=fb_group_feeds.postedAt%>
             </p> 
       <% end %>
     </p>
