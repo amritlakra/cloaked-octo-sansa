@@ -3,7 +3,7 @@ class FaceBookGroupFeed
 
   def initialize(fbHash,id)
   		@postedBy=fbHash['from']['name']
-  		if(id==fbHash['from']['name'])
+  		if(id==fbHash['from']['id'])
   			@ownShare=true
   		else	
   			@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
