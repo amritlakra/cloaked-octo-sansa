@@ -34,7 +34,7 @@
                 <%=fb_group_feeds.byLink%>
             <% elsif "link"==fb_group_feeds.postType%>
               <%=fb_group_feeds.postMessage%>
-              <a href=<%=fb_group_feeds.feedLink%>
+              <a href=<%=fb_group_feeds.feedLink%>>
                 <%if fb_group_feeds.isPictureLink%>
                   <img src=<%=fb_group_feeds.feedPicture%> width="250" height="250">
                 <%end%>
