@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
     #below line gets users group   
     #@pg_feeds =getFaceBookFeeds(graph,graph.get_connections("me", "groups"))
     #below lines gets groups feeds from groups in DB
-    #groups=Group.all
-    #@pg_feeds =getFaceBookFeeds(graph,groups)
+    groups=Group.all
+    @pg_feeds =getFaceBookFeeds(graph,groups)
   end
 #get users group feed
 =begin
