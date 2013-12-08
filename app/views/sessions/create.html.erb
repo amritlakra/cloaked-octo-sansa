@@ -17,6 +17,7 @@
   <p>
     <%if !@pg_feeds.nil? %>
       <% @pg_feeds.each do |fb_group_feeds| %>
+          <div class="feeds">
           <p>  
             <%if fb_group_feeds.ownShare%>
             <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
@@ -42,9 +43,12 @@
                 <%=fb_group_feeds.feedCaption%>
                 <%=fb_group_feeds.feedDescription%>
               </a>
+            <%else%>
+              <%=fb_group_feeds.postMessage%>
             <%end%>
               Posted At <%=fb_group_feeds.postedAt%>
             </p> 
+          </div>
       <% end %>
     </p>
     <%end%>
