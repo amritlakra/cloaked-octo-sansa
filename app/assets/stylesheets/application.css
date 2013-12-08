@@ -27,12 +27,15 @@ div {
     margin-bottom: 10px;
   }}
 .feeds{
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: black;
     border-radius: 15px;
     background-color:#EEEEEE;
-    float:left;
+    float:none;
+    height: 550px;
+    width: 350px;
+    padding:25px;
   }
 
 
