@@ -18,11 +18,11 @@
     <%if !@pg_feeds.nil? %>
       <% @pg_feeds.each do |fb_group_feeds| %>
           <p>  
-            if(ownShare)
+            <%if(ownShare)%>
             <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-            else
+            <%else%>
             <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-            end
+            <%end%>
             
             <strong>Post</strong>
             <%=fb_group_feeds.postMessage%>
