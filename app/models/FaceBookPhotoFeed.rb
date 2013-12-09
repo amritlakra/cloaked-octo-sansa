@@ -4,7 +4,7 @@ class FaceBookPhotoFeed < FaceBookGroupFeed
 
   def initialize(fbHash,id,graph)
     super(fbHash,id)
-    hiResObject= graph.get_connections(fbHash['object_id'])
+    hiResObject= graph.get_object(fbHash['object_id'])
     if(!hiResObject.nil? and !hiResObject.empty?)
       if(!hiResObject['source'].nil? and !hiResObject['source'].empty? and !hiResObject['source'].blank? )
         @photoThumbNail=hiResObject['source']
