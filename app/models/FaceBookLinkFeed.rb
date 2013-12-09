@@ -1,12 +1,13 @@
 require 'uri'
+require 'rails_autolink'
 class FaceBookLinkFeed < FaceBookGroupFeed
   attr_accessor  :feedLink,:feedCaption,:feedName,:feedDescription,:feedPicture,:isPictureLink
   def initialize(fbHash,id)
   	super(fbHash,id)
   	@feedLink=fbHash['link']
-  	@feedCaption=fbHash['caption']
-  	@feedName=fbHash['name']
-  	@feedDescription=fbHash['description']
+  	@feedCaption=auto_link(fbHash['caption'],:html => { :target => '_blank' })
+  	@feedName=auto_link(fbHash['name'],:html => { :target => '_blank' })
+  	@feedDescription=auto_link(fbHash['description'],:html => { :target => '_blank' })
   	@isPictureLink=false
   	if !fbHash['picture'].nil? and fbHash['picture'].present?
       @isPictureLink=true  		

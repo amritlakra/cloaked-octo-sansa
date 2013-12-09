@@ -17,7 +17,8 @@ gem 'execjs','~>1.4.0'
 gem 'omniauth-facebook'
 #Facebook graph api calls
 gem 'koala', '~> 1.8.0rc1'
-
+#Detect Links in Posts
+gem "rails_autolink", "~> 1.1.5"
 group :production do
 gem 'pg', '0.15.1'	
 gem 'rails_12factor', '0.0.2'

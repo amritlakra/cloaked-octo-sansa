@@ -3,11 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
+    if(!session[:user_id].nil?)
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
 	session[:fb_oauth_token]=user.sectoken
-
-	graph = Koala::Facebook::API.new(session[:fb_oauth_token])
+    end
+    graph = Koala::Facebook::API.new(session[:fb_oauth_token])
 	session[:fb_graph] = graph
     #below line gets users group   
     #@pg_feeds =getFaceBookFeeds(graph,graph.get_connections("me", "groups"))
@@ -51,7 +52,7 @@ class SessionsController < ApplicationController
                     pg_feed.each do |feed_data|
                         if !feed_data.nil? and feed_data['from']['name'].present?
                             if "photo"==feed_data['type']
-                                feed=FaceBookPhotoFeed.new(feed_data,data.gid)
+                                feed=FaceBookPhotoFeed.new(feed_data,data.gid,graph)
                             elsif "link"==feed_data['type']
                                 feed=FaceBookLinkFeed.new(feed_data,data.gid)
                             else
@@ -72,6 +73,7 @@ class SessionsController < ApplicationController
 	def destroy
 	session[:user_id] = nil
     session[:fb_oauth_token] = nil
+    session[:fb_graph] = nil
     redirect_to root_url, notice: "Signed out!"
 	end
 end

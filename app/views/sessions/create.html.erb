@@ -29,7 +29,7 @@
           <p align="center"> <%=fb_group_feeds.postMessage%></p>
           <p align="center"> <%=fb_group_feeds.photoName%></p>
           <p align="center">
-            <a href=<%=fb_group_feeds.photoLink%>>
+            <a href=<%=fb_group_feeds.photoLink%> target="_blank">
               <img src=<%=fb_group_feeds.photoThumbNail%> width="250" height="250" align="center">
             </a>
           </p>  
@@ -41,7 +41,7 @@
           <% elsif "link"==fb_group_feeds.postType%>
             <p align="center"><%=fb_group_feeds.postMessage%></p>
             <p align="center">
-            <a href=<%=fb_group_feeds.feedLink%>>
+            <a href=<%=fb_group_feeds.feedLink%> target="_blank">
             <%if fb_group_feeds.isPictureLink%>
               <img src=<%=fb_group_feeds.feedPicture%> width="250" height="250" align="center">
             <%end%>
