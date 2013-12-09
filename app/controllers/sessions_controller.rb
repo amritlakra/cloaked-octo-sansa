@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if(!session[:user_id].nil?)
+    if(session[:user_id].nil?)
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
 	session[:fb_oauth_token]=user.sectoken
