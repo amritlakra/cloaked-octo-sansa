@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if(session[:user_id].nil?)
+    
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
 	session[:fb_oauth_token]=user.sectoken
-    end
+    
     graph = Koala::Facebook::API.new(session[:fb_oauth_token])
 	session[:fb_graph] = graph
     #below line gets users group   
