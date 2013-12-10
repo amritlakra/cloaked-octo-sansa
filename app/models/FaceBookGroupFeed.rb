@@ -2,6 +2,7 @@ require 'rails_autolink'
 require 'uri'
 class FaceBookGroupFeed 
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::UrlHelper
   attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt, :ownShare
 
   def initialize(fbHash,id)
