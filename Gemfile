@@ -8,7 +8,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'bootstrap-sass'
 gem 'jquery-rails','~>2.2.1'
 gem "therubyracer"
 gem 'turbolinks', '1.1.1'
@@ -22,6 +22,9 @@ gem "rails_autolink", "~> 1.1.5"
 group :production do
 gem 'pg', '0.15.1'	
 gem 'rails_12factor', '0.0.2'
+end
+group :development do
+  gem 'rails_layout'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
