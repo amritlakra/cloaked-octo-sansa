@@ -20,48 +20,91 @@
   </div>  
   <div class="col-md-7">
   <%if !@pg_feeds.nil? %>
+  <ul class="media-list">
     <% @pg_feeds.each do |fb_group_feeds| %>
-        <p align="center">  
-          <%if fb_group_feeds.ownShare%>
-            <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-          <%else%>
-            <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-          <%end%>
-        </p>
+    <li class="media">
+         
           <% if "photo"==fb_group_feeds.postType %>
-          <p align="center"> <%=fb_group_feeds.postMessage%></p>
-          <p align="center"> <%=fb_group_feeds.photoName%></p>
-          <p align="center">
-            <a href=<%=fb_group_feeds.photoLink%> target="_blank">
-              <img src=<%=fb_group_feeds.photoThumbNail%> width="250" height="250" align="center">
+
+            <a class="pull-left" href=<%=fb_group_feeds.photoLink%> target="_blank">
+              <img class="media-object" src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
             </a>
-          </p>  
-            <p align="center">
-            <%=fb_group_feeds.byName%>
-            <%=fb_group_feeds.byText%>
-            <%=fb_group_feeds.byLink%>
-            </p>
+
+            <div class="media-body">
+                <h4 class="media-heading">
+                  <%if fb_group_feeds.ownShare%>
+                    <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                  <%else%>
+                    <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
+                  <%end%>
+                </h4>
+                <%=fb_group_feeds.postMessage%>
+                <%=fb_group_feeds.photoName%>
+                <%=fb_group_feeds.byName%>
+                <%=fb_group_feeds.byText%>
+                <%=fb_group_feeds.byLink%>
+                Posted on <%=fb_group_feeds.postedAt%>
+            </div>
+
           <% elsif "link"==fb_group_feeds.postType%>
-            <p align="center"><%=fb_group_feeds.postMessage%></p>
-            <p align="center">
-            <a href=<%=fb_group_feeds.feedLink%> target="_blank">
-            <%if fb_group_feeds.isPictureLink%>
-              <img src=<%=fb_group_feeds.feedPicture%> width="250" height="250" align="center">
-            <%end%>
-            <p align="center">
-            <%=fb_group_feeds.feedName%>
-            <%=fb_group_feeds.feedCaption%>
-            <%=fb_group_feeds.feedDescription%>
-            </p>
+
+          <%if fb_group_feeds.isPictureLink%>
+            <a class="pull-left" href=<%=fb_group_feeds.photoLink%> target="_blank">
+              <img class="media-object" src=<%=fb_group_feeds.photoThumbNail%> alt="Link Feed">
             </a>
-            </p>
-          <%else%>
-            <p align="center"><%=fb_group_feeds.postMessage%></p>
+         
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%if fb_group_feeds.ownShare%>
+                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                <%else%>
+                  <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
+                <%end%>
+              </h4>
+                <%=fb_group_feeds.postMessage%>
+                <%=fb_group_feeds.feedName%>
+                <%=fb_group_feeds.feedCaption%>
+                <%=fb_group_feeds.feedDescription%>
+                Posted on <%=fb_group_feeds.postedAt%>
+            </div>
+          <% else %>
+            
+            <a href=<%=fb_group_feeds.feedLink%> target="_blank">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%if fb_group_feeds.ownShare%>
+                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                <%else%>
+                  <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
+                <%end%>
+              </h4>
+                <%=fb_group_feeds.postMessage%>
+                <%=fb_group_feeds.feedName%>
+                <%=fb_group_feeds.feedCaption%>
+                <%=fb_group_feeds.feedDescription%> 
+                Posted on <%=fb_group_feeds.postedAt%>
+            </div>
+            </a>
           <%end%>
-            <p align="center">Posted on <%=fb_group_feeds.postedAt%></p>
-        </p> 
+
+          <%else%>
+           <div class="media-body">
+              <h4 class="media-heading">
+          <% if fb_group_feeds.ownShare %>
+            <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+          <% else %>
+            <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
+          <% end %>
+              </h4>
+          <%=fb_group_feeds.postMessage%>
+          Posted on <%=fb_group_feeds.postedAt%>
+        </h4>
       </div>
-    <% end %>
+          <%end%>
+            
+    </li>    
+    <% end %>   
+  </ul>  
   <%end%>
   </div>
   </div>
