@@ -48,6 +48,7 @@ class SessionsController < ApplicationController
         if(!fb_groups.to_a.empty?)
             fb_groups.each do |data|
                 pg_feed = graph.get_connections(data.gid,"feed")
+                pg_feed.inspect
                 if !pg_feed.nil?
                     pg_feed.each do |feed_data|
                         if !feed_data.nil? and feed_data['from']['name'].present?
