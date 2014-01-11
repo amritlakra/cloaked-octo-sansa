@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
         pg_feeds = []
         if(!fb_groups.to_a.empty?)
             fb_groups.each do |data|
-                pg_feed = graph.get_connections(data.gid,"feed")
+                pg_feed = graph.get_connections(data.gid,"feed","picture.type(normal)")
                 puts pg_feed.to_s
                 puts "pointbreak!!!!!!!!!!!!!!!"
                 if !pg_feed.nil?
