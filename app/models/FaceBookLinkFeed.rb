@@ -10,7 +10,7 @@ class FaceBookLinkFeed < FaceBookGroupFeed
   	if !fbHash['picture'].nil? and fbHash['picture'].present?
       @isPictureLink=true  		
       @feedPicture=formatPictureUrl(fbHash['picture'])
-      feedPictureUrl= graph.get_picture(fbHash['object_id'],:type => 'normal')
+      feedPictureUrl= graph.get_object(fbHash['object_id']) { |data| data['source'] }
       puts feedPictureUrl
   	end
   end
