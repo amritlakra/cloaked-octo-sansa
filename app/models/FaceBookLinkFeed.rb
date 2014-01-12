@@ -10,8 +10,6 @@ class FaceBookLinkFeed < FaceBookGroupFeed
   	if !fbHash['picture'].nil? and fbHash['picture'].present?
       @isPictureLink=true  		
       @feedPicture=formatPictureUrl(fbHash['picture'])
-      feedPictureUrl= graph.get_object(fbHash['object_id'])
-      puts feedPictureUrl
   	end
   end
 end
