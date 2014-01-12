@@ -1,6 +1,6 @@
 class FaceBookLinkFeed < FaceBookGroupFeed
   attr_accessor  :feedLink,:feedCaption,:feedName,:feedDescription,:feedPicture,:isPictureLink
-  def initialize(fbHash,id,groupPictureUrl)
+  def initialize(fbHash,id,groupPictureUrl,graph)
   	super(fbHash,id,groupPictureUrl)
   	@feedLink=fbHash['link']
   	@feedCaption=formatUrlsInPosts(fbHash['caption'])
@@ -10,6 +10,8 @@ class FaceBookLinkFeed < FaceBookGroupFeed
   	if !fbHash['picture'].nil? and fbHash['picture'].present?
       @isPictureLink=true  		
       @feedPicture=formatPictureUrl(fbHash['picture'])
+      feedPictureUrl= graph.get_picture(fbHash['object_id'],:type => 'normal')
+      puts feedPictureUrl
   	end
   end
 end
