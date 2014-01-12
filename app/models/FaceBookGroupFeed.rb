@@ -3,9 +3,9 @@ require 'uri'
 class FaceBookGroupFeed 
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::UrlHelper
-  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt, :ownShare
+  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt, :ownShare, :groupPictureUrl
 
-  def initialize(fbHash,id)
+  def initialize(fbHash,id,groupPictureUrl)
   		@postedBy=fbHash['from']['name']
   		if(id==fbHash['from']['id'])
   			@ownShare=true
@@ -17,6 +17,7 @@ class FaceBookGroupFeed
   		@postType=fbHash['type']
       fbDate=DateTime.parse(fbHash['created_time'])
   		@postedAt= fbDate.strftime("%B")+'\''+fbDate.strftime("%y")+' at'+fbDate.strftime("%e")+':'+fbDate.strftime("%M")+' '+fbDate.strftime("%P")
+      @groupPictureUrl= groupPictureUrl
   end
 
   def formatUrlsInPosts(post_body)

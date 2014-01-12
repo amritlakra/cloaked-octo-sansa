@@ -1,8 +1,8 @@
 class FaceBookPhotoFeed < FaceBookGroupFeed
   attr_accessor  :photoThumbNail,:photoName,:photoLink,:photoCaption,:byName,:byText,:byLink
 
-  def initialize(fbHash,id)
-    super(fbHash,id)
+  def initialize(fbHash,id,groupPictureUrl)
+    super(fbHash,id,groupPictureUrl)
     @photoThumbNail=fbHash['picture']    
    	@photoLink=fbHash['link']
   	@photoName=formatUrlsInPosts(fbHash['name'])

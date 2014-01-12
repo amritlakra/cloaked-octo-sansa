@@ -68,8 +68,10 @@
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
           <% else %>
+            <a class="pull-left" href=<%=fb_group_feeds.feedLink%> target="_blank">
+              <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+            </a>
             
-            <a href=<%=fb_group_feeds.feedLink%> target="_blank">
             <div class="media-body">
               <h4 class="media-heading">
                 <%if fb_group_feeds.ownShare%>
@@ -84,23 +86,25 @@
                 <%=fb_group_feeds.feedDescription%> 
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
-            </a>
+            
           <%end%>
 
-          <%else%>
-           <div class="media-body">
-              <h4 class="media-heading">
-          <% if fb_group_feeds.ownShare %>
-            <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-          <% else %>
-            <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-          <% end %>
-              </h4>
-          <%=fb_group_feeds.postMessage%>
-          Posted on <%=fb_group_feeds.postedAt%>
-        </h4>
-      </div>
-          <%end%>
+        <%else%>
+          <a class="pull-left" href="#" target="_blank">
+              <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">
+              <% if fb_group_feeds.ownShare %>
+                <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+              <% else %>
+                <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
+              <% end %>
+            </h4>
+              <%=fb_group_feeds.postMessage%>
+              Posted on <%=fb_group_feeds.postedAt%>
+          </div>
+        <%end%>
             
     </li>    
     <% end %>   

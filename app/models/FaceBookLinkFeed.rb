@@ -1,7 +1,7 @@
 class FaceBookLinkFeed < FaceBookGroupFeed
   attr_accessor  :feedLink,:feedCaption,:feedName,:feedDescription,:feedPicture,:isPictureLink
-  def initialize(fbHash,id)
-  	super(fbHash,id)
+  def initialize(fbHash,id,groupPictureUrl)
+  	super(fbHash,id,groupPictureUrl)
   	@feedLink=fbHash['link']
   	@feedCaption=formatUrlsInPosts(fbHash['caption'])
   	@feedName=formatUrlsInPosts(fbHash['name'])
