@@ -56,7 +56,7 @@ class SessionsController < ApplicationController
                             if "photo"==feed_data['type']
                                 feed=FaceBookPhotoFeed.new(feed_data,data.gid,groupPictureUrl)
                             elsif "link"==feed_data['type']
-                                feed=FaceBookLinkFeed.new(feed_data,data.gid,groupPictureUrl)
+                                feed=FaceBookLinkFeed.new(feed_data,data.gid,groupPictureUrl,graph)
                             else
                                 feed=FaceBookStatusFeed.new(feed_data,data.gid,groupPictureUrl)
                             end
