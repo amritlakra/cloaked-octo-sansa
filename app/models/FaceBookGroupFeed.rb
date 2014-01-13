@@ -7,16 +7,14 @@ class FaceBookGroupFeed
 
   def initialize(fbHash,id,groupPictureUrl)
   		@postedBy=fbHash['from']['name']
-      #commented out to display only Group posts
-      =begin
-  		if(id==fbHash['from']['id'])
-  			@ownShare=true
-  		else	
-        @ownShare=false
-  			@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
-  		end
-      =end
-
+      ##commented out to display only Group posts
+      #if(id==fbHash['from']['id'])
+  		#	@ownShare=true
+  		#else	
+      #  @ownShare=false
+  		#	@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
+  		#end
+      
   		@postMessage=formatUrlsInPosts(fbHash['message'])
   		@postType=fbHash['type']
       fbDate=DateTime.parse(fbHash['created_time'])
