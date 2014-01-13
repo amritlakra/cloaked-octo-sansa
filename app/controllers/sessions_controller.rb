@@ -49,18 +49,20 @@ class SessionsController < ApplicationController
             fb_groups.each do |data|
                 groupPictureUrl= graph.get_picture(data.gid,:type => 'normal')
                 pg_feed = graph.get_connections(data.gid,"feed")
-                
                 if !pg_feed.nil?
                     pg_feed.each do |feed_data|
                         if !feed_data.nil? and feed_data['from']['name'].present?
-                            if "photo"==feed_data['type']
-                                feed=FaceBookPhotoFeed.new(feed_data,data.gid,groupPictureUrl)
-                            elsif "link"==feed_data['type']
-                                feed=FaceBookLinkFeed.new(feed_data,data.gid,groupPictureUrl,graph)
-                            else
-                                feed=FaceBookStatusFeed.new(feed_data,data.gid,groupPictureUrl)
+                            # added to display only Group posts
+                            if(data.gid==feed_data['from']['id'])
+                                if "photo"==feed_data['type']
+                                    feed=FaceBookPhotoFeed.new(feed_data,data.gid,groupPictureUrl)
+                                elsif "link"==feed_data['type']
+                                    feed=FaceBookLinkFeed.new(feed_data,data.gid,groupPictureUrl,graph)
+                                else
+                                    feed=FaceBookStatusFeed.new(feed_data,data.gid,groupPictureUrl)
+                                end
+                                pg_feeds<<feed
                             end
-                            pg_feeds<<feed
                         end  
                     end
                 end

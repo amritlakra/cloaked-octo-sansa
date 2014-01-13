@@ -32,11 +32,15 @@
 
             <div class="media-body">
                 <h4 class="media-heading">
+                  <%-# commented to dipslay only Group posts -%>
+                  <% if false %>
                   <%if fb_group_feeds.ownShare%>
                     <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                   <%else%>
                     <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
                   <%end%>
+                  <%end%>
+                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                 </h4>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.photoName%>
@@ -55,11 +59,15 @@
          
             <div class="media-body">
               <h4 class="media-heading">
+                <%-# commented to dipslay only Group posts -%>
+                <% if false %>
                 <%if fb_group_feeds.ownShare%>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                 <%else%>
                   <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
                 <%end%>
+                <%end%>
+                <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
@@ -74,11 +82,15 @@
             
             <div class="media-body">
               <h4 class="media-heading">
+                <%-# commented to dipslay only Group posts -%>
+                <% if false %>
                 <%if fb_group_feeds.ownShare%>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                 <%else%>
                   <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
                 <%end%>
+                <%end%>
+                 <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
@@ -95,11 +107,15 @@
           </a>
           <div class="media-body">
             <h4 class="media-heading">
+              <%-# commented to dipslay only Group posts -%>
+              <% if false %>
               <% if fb_group_feeds.ownShare %>
                 <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               <% else %>
                 <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
               <% end %>
+              <%end%>
+              <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
             </h4>
               <%=fb_group_feeds.postMessage%>
               Posted on <%=fb_group_feeds.postedAt%>
