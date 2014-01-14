@@ -53,7 +53,7 @@
           <% elsif "link"==fb_group_feeds.postType%>
 
           <%if fb_group_feeds.isPictureLink%>
-            <a class="pull-left" href=<%=fb_group_feeds.feedLink%> target="_blank">
+            <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
               <img class="media-object" src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
             </a>
          
@@ -76,7 +76,7 @@
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
           <% else %>
-            <a class="pull-left" href=<%=fb_group_feeds.feedLink%> target="_blank">
+            <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
               <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
             </a>
             
@@ -102,7 +102,7 @@
           <%end%>
 
         <%else%>
-          <a class="pull-left" href="#" target="_blank">
+          <a class="pull-left thumbnail" href="#" target="_blank">
               <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
           </a>
           <div class="media-body">
