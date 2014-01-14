@@ -27,7 +27,7 @@
           <% if "photo"==fb_group_feeds.postType %>
 
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.photoLink%> target="_blank">
-              <img class="media-object" src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
+              <img class="media-object img-responsive" src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
             </a>
 
             <div class="media-body">
@@ -54,7 +54,7 @@
 
           <%if fb_group_feeds.isPictureLink%>
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
-              <img class="media-object" src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
+              <img class="media-object img-responsive" src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
             </a>
          
             <div class="media-body">
@@ -77,7 +77,7 @@
             </div>
           <% else %>
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
-              <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+              <img class="media-object img-responsive" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
             </a>
             
             <div class="media-body">
@@ -103,7 +103,7 @@
 
         <%else%>
           <a class="pull-left thumbnail" href="#" target="_blank">
-              <img class="media-object" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+              <img class="media-object img-responsive" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
           </a>
           <div class="media-body">
             <h4 class="media-heading">
