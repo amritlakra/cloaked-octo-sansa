@@ -64,5 +64,8 @@ module Socialfeeds
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Precompile added assets css and js
+    config.assets.precompile += ['readmore.min.js']
   end
 end
