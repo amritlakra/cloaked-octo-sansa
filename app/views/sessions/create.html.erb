@@ -27,26 +27,21 @@
           <% if "photo"==fb_group_feeds.postType %>
 
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.photoLink%> target="_blank">
-              <img class="media-object img-responsive" src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
+              <img class="media-object img-responsive" width="150" height="150"
+                src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
             </a>
 
             <div class="media-body">
                 <h4 class="media-heading">
-                  <%-# commented to dipslay only Group posts -%>
-                  <% if false %>
-                  <%if fb_group_feeds.ownShare%>
-                    <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-                  <%else%>
-                    <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-                  <%end%>
-                  <%end%>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                 </h4>
+                <article>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.photoName%>
                 <%=fb_group_feeds.byName%>
                 <%=fb_group_feeds.byText%>
                 <%=fb_group_feeds.byLink%>
+                </article>
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
 
@@ -54,48 +49,38 @@
 
           <%if fb_group_feeds.isPictureLink%>
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
-              <img class="media-object img-responsive" src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
+              <img class="media-object img-responsive" width="150" height="150"
+                src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
             </a>
          
             <div class="media-body">
               <h4 class="media-heading">
-                <%-# commented to dipslay only Group posts -%>
-                <% if false %>
-                <%if fb_group_feeds.ownShare%>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-                <%else%>
-                  <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-                <%end%>
-                <%end%>
-                <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
+              <article>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedCaption%>
                 <%=fb_group_feeds.feedDescription%>
-                Posted on <%=fb_group_feeds.postedAt%>
+              </article>
+              Posted on <%=fb_group_feeds.postedAt%>
             </div>
           <% else %>
             <a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
-              <img class="media-object img-responsive" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+              <img class="media-object img-responsive" width="150" height="150"
+                src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
             </a>
             
             <div class="media-body">
               <h4 class="media-heading">
-                <%-# commented to dipslay only Group posts -%>
-                <% if false %>
-                <%if fb_group_feeds.ownShare%>
-                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-                <%else%>
-                  <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-                <%end%>
-                <%end%>
                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
+              <article>
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedCaption%>
-                <%=fb_group_feeds.feedDescription%> 
+                <%=fb_group_feeds.feedDescription%>
+              </article>   
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
             
@@ -103,21 +88,16 @@
 
         <%else%>
           <a class="pull-left thumbnail" href="#" target="_blank">
-              <img class="media-object img-responsive" src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+              <img class="media-object img-responsive" width="150" height="150"
+                src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
           </a>
           <div class="media-body">
             <h4 class="media-heading">
-              <%-# commented to dipslay only Group posts -%>
-              <% if false %>
-              <% if fb_group_feeds.ownShare %>
-                <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
-              <% else %>
-                <%=fb_group_feeds.postedBy%> Posted in <%=fb_group_feeds.groupName%>
-              <% end %>
-              <%end%>
               <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
             </h4>
+            <article>
               <%=fb_group_feeds.postMessage%>
+            </article>  
               Posted on <%=fb_group_feeds.postedAt%>
           </div>
         <%end%>
