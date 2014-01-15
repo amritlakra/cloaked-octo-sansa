@@ -33,7 +33,11 @@
 
             <div class="media-body">
                 <h4 class="media-heading">
+                  <% if fb_group_feeds.story.present? %>
+                  <%=fb_group_feeds.story%>
+                  <% else %>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                  <% end %>
                 </h4>
                 <article class="expander" > 
                 <%=fb_group_feeds.postMessage%>
@@ -55,7 +59,11 @@
          
             <div class="media-body">
               <h4 class="media-heading">
+                  <% if fb_group_feeds.story.present? %>
+                  <%=fb_group_feeds.story%>
+                  <% else %>
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                  <% end %>
               </h4>
               <article class="expander">
                 <%=fb_group_feeds.postMessage%>
@@ -73,7 +81,11 @@
             
             <div class="media-body">
               <h4 class="media-heading">
-                 <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                <% if fb_group_feeds.story.present? %>
+                <%=fb_group_feeds.story%>
+                <% else %>
+                <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                <% end %>
               </h4>
               <article class="expander">
                 <%=fb_group_feeds.postMessage%>
@@ -85,15 +97,41 @@
             </div>
             
           <%end%>
+          <% elsif "video"==fb_group_feeds.postType%>
+            <a class="pull-left thumbnail" href=<%=fb_group_feeds.photoLink%> target="_blank">
+              <img class="media-object img-responsive" width="150" height="150"
+                src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
+            </a>
 
-        <%else%>
+            <div class="media-body">
+                <h4 class="media-heading">
+                  <% if fb_group_feeds.story.present? %>
+                  <%=fb_group_feeds.story%>
+                  <% else %>
+                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+                  <% end %>
+                </h4>
+                <article class="expander" > 
+                <%=fb_group_feeds.postMessage%>
+                <%=fb_group_feeds.photoName%>
+                <%=fb_group_feeds.byName%>
+                <%=fb_group_feeds.byText%>
+                <%=fb_group_feeds.byLink%>
+                </article>
+                Posted on <%=fb_group_feeds.postedAt%>
+            </div>
+          <%else%>
           <a class="pull-left thumbnail" href="#" target="_blank">
               <img class="media-object img-responsive" width="150" height="150"
                 src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
           </a>
           <div class="media-body">
             <h4 class="media-heading">
+              <% if fb_group_feeds.story.present? %>
+              <%=fb_group_feeds.story%>
+              <% else %>
               <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+              <% end %>
             </h4>
             <article class="expander">
               <%=fb_group_feeds.postMessage%>

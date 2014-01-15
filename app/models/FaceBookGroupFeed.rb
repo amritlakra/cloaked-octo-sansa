@@ -3,7 +3,7 @@ require 'uri'
 class FaceBookGroupFeed 
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::UrlHelper
-  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt, :ownShare, :groupPictureUrl
+  attr_accessor  :postedBy, :groupName, :postMessage, :postType, :postedAt, :ownShare, :groupPictureUrl, :story
 
   def initialize(fbHash,id,groupPictureUrl)
   		@postedBy=fbHash['from']['name']
@@ -14,7 +14,7 @@ class FaceBookGroupFeed
       #  @ownShare=false
   		#	@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
   		#end
-      
+      @story=fbHash[story]
   		@postMessage=formatUrlsInPosts(fbHash['message'])
   		@postType=fbHash['type']
       fbDate=DateTime.parse(fbHash['created_time'])
