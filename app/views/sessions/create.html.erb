@@ -98,9 +98,8 @@
             
           <%end%>
           <% elsif "video"==fb_group_feeds.postType%>
-            <a class="pull-left thumbnail" href=<%=fb_group_feeds.photoLink%> target="_blank">
-              <img class="media-object img-responsive" width="150" height="150"
-                src=<%=fb_group_feeds.photoThumbNail%> alt="Image Feed">
+            <a class="pull-left thumbnail" href=<%=fb_group_feeds.videoFeedFaceBookUrl%> target="_blank">
+              <iframe src=<%=fb_group_feeds.videoFeedUrl%> width="150" height="150" frameborder="0" alt="Video Feed"></iframe>
             </a>
 
             <div class="media-body">
@@ -113,10 +112,9 @@
                 </h4>
                 <article class="expander" > 
                 <%=fb_group_feeds.postMessage%>
-                <%=fb_group_feeds.photoName%>
-                <%=fb_group_feeds.byName%>
-                <%=fb_group_feeds.byText%>
-                <%=fb_group_feeds.byLink%>
+                <%=fb_group_feeds.videoFeedName%>
+                <%=fb_group_feeds.videoFeedDescription%>
+                <%=fb_group_feeds.videoFeedLength%>
                 </article>
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
