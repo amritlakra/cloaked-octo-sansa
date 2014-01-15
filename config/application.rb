@@ -66,6 +66,6 @@ module Socialfeeds
     config.assets.version = '1.0'
 
     # Precompile added assets css and js
-    config.assets.precompile += ['readmore.min.js']
+    config.assets.precompile += ['jquery.expander.min.js']
   end
 end

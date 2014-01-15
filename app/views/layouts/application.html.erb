@@ -6,8 +6,34 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Prototype" %>">
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "readmore.min" %>
+    <%= javascript_include_tag "jquery.expander.min" %>
     <%= csrf_meta_tags %>
+    <script>
+    $(document).ready(function() {
+        var opts = {collapseTimer: 4000};
+
+        $.each(['beforeExpand', 'afterExpand', 'onCollapse'], function(i, callback) {
+          opts[callback] = function(byUser) {
+            var by, msg = '<div class="success">' + callback;
+
+            if (callback == 'onCollapse') {
+              msg += ' (' + (byUser ? 'user' : 'timer') + ')';
+            }
+            msg += '</div>';
+
+            $(this).parent().parent().append(msg)
+          }
+        });
+        
+      $('article.expander').expander({
+          slicePoint: 140,
+          widow: 20,
+          expandSpeed: 0,
+          expandText: '<i class="glyphicon glyphicon-chevron-right"></i>',
+          userCollapseText: '<i class="glyphicon glyphicon-chevron-up"></i>'
+        });
+    });
+    </script>
   </head>
   <body>
     <header>

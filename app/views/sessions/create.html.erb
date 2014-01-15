@@ -35,7 +35,7 @@
                 <h4 class="media-heading">
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
                 </h4>
-                <article>
+                <article class="expander" > 
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.photoName%>
                 <%=fb_group_feeds.byName%>
@@ -57,7 +57,7 @@
               <h4 class="media-heading">
                   <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
-              <article>
+              <article class="expander">
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedCaption%>
@@ -75,7 +75,7 @@
               <h4 class="media-heading">
                  <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
               </h4>
-              <article>
+              <article class="expander">
                 <%=fb_group_feeds.postMessage%>
                 <%=fb_group_feeds.feedName%>
                 <%=fb_group_feeds.feedCaption%>
@@ -95,7 +95,7 @@
             <h4 class="media-heading">
               <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
             </h4>
-            <article>
+            <article class="expander">
               <%=fb_group_feeds.postMessage%>
             </article>  
               Posted on <%=fb_group_feeds.postedAt%>
@@ -109,13 +109,6 @@
   </div>
   </div>
   </div>
-  <script>
-  $('article').readmore({
-    maxHeight : 35,
-    moreLink: '<a href="#">Read More<i class="glyphicon glyphicon-circle-arrow-right"></i></a>',
-    lessLink: '<a href="#">Less<i class="glyphicon glyphicon-circle-arrow-left"></i></a>'
-  });
-</script>
 <% else %>
 
   <h1>Use below Link to Sign In Agian</h1>
