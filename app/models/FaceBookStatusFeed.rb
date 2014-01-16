@@ -6,8 +6,9 @@ class FaceBookStatusFeed < FaceBookGroupFeed
    		statusAction=fbHash['actions']
    		puts "start!!!"
    		puts statusAction.inspect
-   		puts statusAction.empty?
+   		#puts statusAction.empty?
    		#statusAction.count
+   		puts statusAction[0][:link]
    		puts statusAction
 	   	statusAction.each do |feedActions|
 	   		@statusFeedUrl=feedActions['link']
