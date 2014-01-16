@@ -4,8 +4,10 @@ class FaceBookStatusFeed < FaceBookGroupFeed
    		super(fbHash,id,groupPictureUrl)
    		
    		statusAction=fbHash['actions']
-   		statusAction.empty?
-   		statusAction.count
+   		puts "start!!!"
+   		puts statusAction.inspect
+   		#statusAction.empty?
+   		#statusAction.count
    		puts statusAction
 	   	#statusAction.each do |feedActions|
 	   	#	@statusFeedUrl=feedActions['link']
