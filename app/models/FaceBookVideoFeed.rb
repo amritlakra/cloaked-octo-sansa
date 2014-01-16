@@ -3,8 +3,6 @@ class FaceBookVideoFeed < FaceBookGroupFeed
    def initialize(fbHash,id,groupPictureUrl,graph)
    	super(fbHash,id,groupPictureUrl)
    	feedPropeties=fbHash['properties']
-      puts feedPropeties.inspect
-      puts feedPropeties.respond_to?(:each)
    	feedPropeties.each do |prop|
    		if "Length"==prop['name']
    			@videoFeedLength="Length: "+prop['text']
