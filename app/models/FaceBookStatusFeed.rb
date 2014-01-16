@@ -12,5 +12,6 @@ class FaceBookStatusFeed < FaceBookGroupFeed
 		   		@statusFeedUrl=feedActions['link']
 		   	end	
 	   	end
+	   	puts @statusFeedUrl
    end 
 end
