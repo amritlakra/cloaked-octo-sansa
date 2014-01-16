@@ -6,7 +6,7 @@ class FaceBookStatusFeed < FaceBookGroupFeed
    		statusAction=fbHash['actions']
    		puts "start!!!"
    		puts statusAction.inspect
-   		statusAction.empty?
+   		puts statusAction.empty?
    		#statusAction.count
    		puts statusAction
 	   	statusAction.each do |feedActions|
