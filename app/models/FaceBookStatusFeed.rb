@@ -10,9 +10,9 @@ class FaceBookStatusFeed < FaceBookGroupFeed
    		#statusAction.count
    		puts statusAction.nil?
    		puts statusAction
-	   	statusAction.each do |feedActions|
-	   		@statusFeedUrl=feedActions['link']
-	   	end	
+	   	#statusAction.each do |feedActions|
+	   	#	@statusFeedUrl=feedActions['link']
+	   	#end	
 
    end 
 end
