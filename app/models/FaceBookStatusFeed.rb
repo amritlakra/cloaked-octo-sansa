@@ -9,6 +9,9 @@ class FaceBookStatusFeed < FaceBookGroupFeed
 		   		@statusFeedUrl=feedActions['link']
 		   	end	
 	   	end
+	   	puts "start"
 	   	puts @statusFeedUrl
+	   	puts fbHash['object_id']
+	   	puts "end"
    end 
 end
