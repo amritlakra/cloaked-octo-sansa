@@ -11,7 +11,7 @@ class FaceBookStatusFeed < FaceBookGroupFeed
 	   	end
 	   	puts "start"
 	   	puts @statusFeedUrl
-	   	puts fbHash['object_id']
+	   	puts fbHash['id']
 	   	puts "end"
    end 
 end
