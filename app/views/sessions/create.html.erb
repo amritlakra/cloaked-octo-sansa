@@ -127,7 +127,7 @@
                 Posted on <%=fb_group_feeds.postedAt%>
             </div>
           <%elsif "status"==fb_group_feeds.postType%>
-          <a class="pull-left thumbnail" href="fb_group_feeds.statusFeedUrl" target="_blank">
+          <a class="pull-left thumbnail" href=<%=fb_group_feeds.statusFeedUrl%> target="_blank">
               <img class="media-object img-responsive" width="150" height="150"
                 src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
           </a>
