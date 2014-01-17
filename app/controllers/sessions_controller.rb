@@ -61,7 +61,9 @@ class SessionsController < ApplicationController
                                 elsif "video"==feed_data['type']
                                     feed=FaceBookVideoFeed.new(feed_data,data.gid,groupPictureUrl,graph)
                                 elsif "status"==feed_data['type']
-                                    feed=FaceBookStatusFeed.new(feed_data,data.gid,groupPictureUrl)
+                                    if feed_data['actions'].respond_to?(:each)
+                                        feed=FaceBookStatusFeed.new(feed_data,data.gid,groupPictureUrl)
+                                    end
                                 end
                                 pg_feeds<<feed
                             end
