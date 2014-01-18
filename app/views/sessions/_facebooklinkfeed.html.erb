@@ -1,0 +1,29 @@
+<%if fb_group_feeds.isPictureLink%>
+<a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
+  <img class="media-object img-responsive" width="150" height="150"
+  src=<%=fb_group_feeds.feedPicture%> alt="Link Feed">
+</a>
+<% else %>
+<a class="pull-left thumbnail" href=<%=fb_group_feeds.feedLink%> target="_blank">
+  <img class="media-object img-responsive" width="150" height="150"
+  src=<%=fb_group_feeds.groupPictureUrl%> alt="Link Feed">
+</a>
+<%end%>
+<div class="media-body">
+  <h4 class="media-heading">
+    <% if fb_group_feeds.story.present? %>
+    <%=fb_group_feeds.story%>
+    <% else %>
+    <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+    <% end %>
+  </h4>
+  <article class="expander">
+    <p>
+      <%=fb_group_feeds.postMessage%>
+      <%=fb_group_feeds.feedName%>
+      <%=fb_group_feeds.feedCaption%>
+      <%=fb_group_feeds.feedDescription%>
+    </p>  
+  </article>
+  Posted on <%=fb_group_feeds.postedAt%>
+</div>

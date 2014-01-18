@@ -1,0 +1,22 @@
+<a class="pull-left thumbnail" href=<%=fb_group_feeds.videoFeedFaceBookUrl%> target="_blank">
+  <iframe src=<%=fb_group_feeds.videoFeedUrl%> width="150" height="150" frameborder="0" alt="Video Feed"></iframe>
+</a>
+
+<div class="media-body">
+  <h4 class="media-heading">
+    <% if fb_group_feeds.story.present? %>
+    <%=fb_group_feeds.story%>
+    <% else %>
+    <%=fb_group_feeds.postedBy%> Shared a <%=fb_group_feeds.postType %>
+    <% end %>
+  </h4>
+  <article class="expander" > 
+    <p>
+      <%=fb_group_feeds.postMessage%>
+      <%=fb_group_feeds.videoFeedName%>
+      <%=fb_group_feeds.videoFeedDescription%>
+      <%=fb_group_feeds.videoFeedLength%>
+    </p>  
+  </article>
+  Posted on <%=fb_group_feeds.postedAt%>
+</div>
