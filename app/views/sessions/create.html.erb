@@ -24,13 +24,13 @@
         <% @pg_feeds.each do |fb_group_feeds| %>
         <li class="media">
           <% if "photo"==fb_group_feeds.postType %>
-          <%= render 'sessions/facebookphotofeed' %>
+          <%= render 'sessions/facebookphotofeed',:fb_group_feeds => fb_group_feeds %>
           <% elsif "link"==fb_group_feeds.postType%>
-          <%= render 'sessions/facebooklinkfeed' %>
+          <%= render 'sessions/facebooklinkfeed',:fb_group_feeds => fb_group_feeds %>
           <% elsif "video"==fb_group_feeds.postType%>
-          <%= render 'sessions/facebookvideofeed' %>
+          <%= render 'sessions/facebookvideofeed',:fb_group_feeds => fb_group_feeds %>
           <% elsif "status"==fb_group_feeds.postType%>
-          <%= render 'sessions/facebookstatusfeed' %>
+          <%= render 'sessions/facebookstatusfeed',:fb_group_feeds => fb_group_feeds %>
           <%end%>
         </li>    
         <% end %>   
