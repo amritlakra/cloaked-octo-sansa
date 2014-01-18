@@ -14,7 +14,7 @@ class FaceBookGroupFeed
       #  @ownShare=false
   		#	@groupName=fbHash['to']['data'].fetch(0,'could not find group name')['name']
   		#end
-      @story=fbHash[story]
+      @story=fbHash['story']
   		@postMessage=formatUrlsInPosts(fbHash['message'])
   		@postType=fbHash['type']
       fbDate=DateTime.parse(fbHash['created_time'])
